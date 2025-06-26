@@ -64,4 +64,4 @@ function updateCountdown() {
 updateCountdown();
 
 // Start the interval timer to update the display every 1000ms (1 second)
-interval = setInterval(updateCountdown, 1000);
+interval = setInterval(updateCountdown, 1000); 
