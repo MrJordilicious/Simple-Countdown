@@ -33,8 +33,16 @@ document.documentElement.style.setProperty(
 // CSS variable font-size
 document.documentElement.style.setProperty(
     "--font-size",
-    `"${fontSize}"`
+    fontSize
 );
+
+// Color hex selector
+let cssColor = fontColor.replace(/^%23|^#/, "");
+
+  // If it's 3 or 6 hex digits, prepend #
+  if (/^[0-9A-Fa-f]{3}$/.test(cssColor) || /^[0-9A-Fa-f]{6}$/.test(cssColor)) {
+      cssColor = "#" + cssColor;
+  }
 
 // CSS variable font-color
 document.documentElement.style.setProperty(
@@ -51,14 +59,6 @@ link.href =
     "&display=swap";
 
 document.head.appendChild(link);
-
-// Color hex selector
-let cssColor = color.replace(/^%23|^#/, "");
-
-  // If it's 3 or 6 hex digits, prepend #
-  if (/^[0-9A-Fa-f]{3}$/.test(cssColor) || /^[0-9A-Fa-f]{6}$/.test(cssColor)) {
-      cssColor = "#" + cssColor;
-  }
 
 // Function to convert a time string like "2m45s" or "1h30m" into milliseconds
 function parseTimeString(str) {
