@@ -4,7 +4,7 @@ html, body {
   margin: 0;
   padding-left: 10px;
   font-family: var(--font-family, "Passion One");
-  font-size: 64px;
+  font-size: var(--font-size, "64px");
   background: transparent; /* Transparent for OBS overlay */
   overflow: hidden;
 }
@@ -15,6 +15,6 @@ html, body {
   display: flex;
   align-items: left;
   justify-content: left;
-  color: white;
+  color: var(--color, "white");
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }

@@ -17,15 +17,29 @@ const countdownEl = document.getElementById('countdown');
 const params = new URLSearchParams(window.location.search);
 const timeParam = params.get('time') || '1m'; // Default to 1 minute if not specified
 const fontName = params.get("font") || "Passion One"; // Default to Passion One if not specified
+const fontSize = params.get("size") || "64px"; // Default to 64px if not specified
+const fontColor = params.get("color") || "FFFFFF"; // Default to 64px if not specified
 
 //////////
 // CODE //
 //////////
 
-// CSS variable
+// CSS variable font-family
 document.documentElement.style.setProperty(
     "--font-family",
     `"${fontName}"`
+);
+
+// CSS variable font-size
+document.documentElement.style.setProperty(
+    "--font-size",
+    `"${fontSize}"`
+);
+
+// CSS variable font-color
+document.documentElement.style.setProperty(
+    "--color",
+    cssColor
 );
 
 // Google Fonts loader
@@ -37,6 +51,14 @@ link.href =
     "&display=swap";
 
 document.head.appendChild(link);
+
+// Color hex selector
+let cssColor = color.replace(/^%23|^#/, "");
+
+  // If it's 3 or 6 hex digits, prepend #
+  if (/^[0-9A-Fa-f]{3}$/.test(cssColor) || /^[0-9A-Fa-f]{6}$/.test(cssColor)) {
+      cssColor = "#" + cssColor;
+  }
 
 // Function to convert a time string like "2m45s" or "1h30m" into milliseconds
 function parseTimeString(str) {
