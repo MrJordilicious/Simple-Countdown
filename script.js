@@ -16,10 +16,27 @@ const countdownEl = document.getElementById('countdown');
 // Parse the URL parameters to get the countdown time
 const params = new URLSearchParams(window.location.search);
 const timeParam = params.get('time') || '1m'; // Default to 1 minute if not specified
+const fontName = params.get("font") || "Passion One"; // Default to Passion One if not specified
 
 //////////
 // CODE //
 //////////
+
+// CSS variable
+document.documentElement.style.setProperty(
+    "--font-family",
+    `"${fontName}"`
+);
+
+// Google Fonts loader
+const link = document.createElement("link");
+link.rel = "stylesheet";
+link.href =
+    "https://fonts.googleapis.com/css2?family=" +
+    encodeURIComponent(fontName).replace(/%20/g, "+") +
+    "&display=swap";
+
+document.head.appendChild(link);
 
 // Function to convert a time string like "2m45s" or "1h30m" into milliseconds
 function parseTimeString(str) {

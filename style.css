@@ -3,7 +3,7 @@ html, body {
   height: 160px;
   margin: 0;
   padding-left: 10px;
-  font-family: Passion One;
+  font-family: var(--font-family, "Passion One");
   font-size: 64px;
   background: transparent; /* Transparent for OBS overlay */
   overflow: hidden;
